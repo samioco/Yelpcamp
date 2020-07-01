@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<h1>
+				<% if (user.firstName && user.lastName) { %>
+					<%= user.firstName %> <%= user.lastName %>
+				<% } else if (user.firstName) { %>
+					user.firstName %>
+				<% } else { %>
+				<%= user.username %>
+				<% } %>
+
+			</h1>
+				<% if (user.avatar) { %>
+					<div class="thumbnail">
+						<img src="<%= user.avatar %>" alt="user profile image">	
+					</div>
+				<% } %>
+		</div>
+	</div>
+</div>
+<%- include("../partials/footer") %>

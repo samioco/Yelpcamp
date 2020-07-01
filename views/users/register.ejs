@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+
+
+<h1 class="text-center">New User Registration</h1>
+<hr>
+<form action="/users/register" method="POST">
+	<div class="form-group row">
+		<label class="col-md-2 col-form-label">Username:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" name="username" placeholder="username" required autofocus>
+		</div>
+		<label class="col-md-2 col-form-label">Code:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" name="adminCode" placeholder="admin code">
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-md-2 col-form-label">First Name:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" name="newUser[firstName]" placeholder="first name">
+		</div>
+		<label class="col-md-2 col-form-label">Last Name:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" name="newUser[lastName]" placeholder="last name">
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-md-2 col-form-label">Email:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" name="newUser[email]" placeholder="email@domain.com" required>
+		</div>
+		<label class="col-md-2 col-form-label">Avatar:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" name="newUser[avatar]" placeholder="avatar image url">
+		</div>
+		
+	</div>
+	
+	
+	<div class="form-group row">
+		<label class="col-md-2 col-form-label">Password:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="password" name="password" placeholder="password" required>
+		</div>
+		<label class="col-md-2 col-form-label">Confirm Password:</label>
+		<div class="col-md-4">
+			<input class="form-control" type="password" name="confirmPassword" placeholder="confirm password" required>
+		</div>
+	</div>
+	
+	<hr>
+	<div class="form-group">
+		<button class="btn btn-md btn-info btn-block">Submit</button>	
+	</div>
+	
+</form>
+<hr>
+<%- include("../partials/footer") %>

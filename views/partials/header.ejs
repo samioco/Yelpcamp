@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Make site responsive on mobile/tablet -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>YelpCamp</title>
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+	</head>
+	<body>
+		<nav id="navbar" class="navbar navbar-expand-md navbar-dark">
+			<div class="container">
+				<a class="navbar-brand" href="/">Home</a>
+				<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navbar">
+					  <span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item mr-auto<%= typeof page !== 'undefined' && page === 'campgrounds' ? ' active' : '' %>"><a class="nav-link" href="/campgrounds">Campgrounds</a></li>
+					</ul>
+					<ul class="navbar-nav">
+						<% if(!currentUser){ %>
+						<li class="nav-item<%= typeof page !== 'undefined' && page === 'login' ? ' active' : '' %>"><a class="nav-link" href="/users/login">Login</a></li>
+						<li class="nav-item<%= typeof page !== 'undefined' && page === 'register' ? ' active' : '' %>"><a class="nav-link" href="/users/register">Register</a></li>
+						<% } else { %>
+						<li class="nav-item"><a class="nav-link" href="/users/<%= currentUser.id %>">Signed in as: <%= currentUser.usernameProper %></a></li>
+						<li class="nav-item"><a class="nav-link" href="/users/logout">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<% if(error && error.length>0){ %>
+				<hr>
+				<div class="alert alert-danger" role="alert">
+					<%= error %>
+				</div>
+			<% } %>
+			<% if(success && success.length>0){ %>
+				<hr>
+				<div class="alert alert-success" role="alert">
+					<%= success %>
+				</div>
+			<% } %>
+		</div>
+		
+		<div class="container body-content">
+			
+		
+		

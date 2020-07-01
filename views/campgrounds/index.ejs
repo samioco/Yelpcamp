@@ -1,0 +1,43 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to Sammmy's Campgrounds!!</h1>
+			<h5>View my hand-picked campgrounds!</h5>
+			<div class="row">
+				<form action="/campgrounds" method="GET" class="form-inline col-md-6">
+					<div class="form-group">
+						<input type="text" name="search" placeholder="search campgrounds by name" class="form-control">
+						<input type="submit" value="Search" class="btn btn-md btn-info">
+					</div>
+				</form>
+				<% if (currentUser && currentUser.isAdmin) { %>
+				<a class="btn btn-info btn-md ml-auto" href="/campgrounds/new">Add new campground</a>	
+				<% } %>
+			</div>
+			
+		</div>
+	</header>
+
+	<div class="row text-center">	
+		<% campgrounds.forEach(function(campground){ %>
+		<div class="col-sm-6 col-md-3">
+			<div class="card">
+				<img class="img-thumbnail" src="<%= campground.image %>">	
+				<div class="">
+					<a class="" href="/campgrounds/<%= campground.slug %>">
+						<h4><%= campground.name %></h4>
+					</a>
+				</div>
+				<p><a class="btn btn-sm btn-info btn-block" href="/campgrounds/<%= campground._id %>">
+					More Info
+				</a></p>
+			</div>
+			
+		</div>	
+		<% }) %>	
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

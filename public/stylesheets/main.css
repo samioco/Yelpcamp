@@ -1,0 +1,86 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.form-control {
+	border: 1px solid teal;
+}
+.form-control:focus {
+	border: 2px solid teal;
+}
+
+h4 .caption {
+	font-size: 1.25rem;
+}
+h5 {
+	font-size: 1rem;
+	font-weight: normal;
+}
+label {
+	font-weight: bold;
+}
+a {
+	color: teal;
+}
+textarea {
+	text-align: left;
+}
+button {
+	width: 100%;
+}
+.card .edit-form {
+	margin: 30%;
+}
+
+.btn-info {
+	/* color: white; */
+	background-color: teal;
+}
+#navbar {
+	background-color: teal;
+}
+.body-content {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+.card {
+	height: 100%;
+}
+.card.iamge{
+	height: 100%;
+}
+.img-thumbnail {
+	max-height: 150px;
+}
+.thumbnail {
+	padding: 0px;
+}
+.thumbnail img {
+	width: 100%:
+}
+.camp-title {
+	color: teal;
+}
+
+
+.delete-form {
+	display: inline-block;
+}
+
+/* Google Maps */
+#map {
+	height: 250px;
+	width: 100%;
+}
