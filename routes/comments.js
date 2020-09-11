@@ -50,8 +50,17 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 });
 
 // EDIT Comment
+// router.get("/:commentId/edit", middleware.checkCommentOwnerShip, function(req, res){
+// 	res.render("comments/edit", {campgroundSlug: req.params.slug, comment: req.comment});
+// });
 router.get("/:commentId/edit", middleware.checkCommentOwnerShip, function(req, res){
-	res.render("comments/edit", {campgroundSlug: req.params.slug, comment: req.comment});
+	Comment.findById(req.params.commentId, function(err, foundComment){
+		if(err){
+			res.redirect("back");
+		} else {
+			res.render("comments/edit", {campgroundSlug: req.params.slug, comment: foundComment});
+		}
+	});	
 });
 
 

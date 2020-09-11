@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var campgroundSchema = new mongoose.Schema({
-	name: {type: String, required: true},
+	name: {type: String, required: "Campground name cannot be blank."},
 	slug: {type: String, unique: true},
 	price: String,
 	image: String,
@@ -47,32 +47,27 @@ campgroundSchema.pre('save', async function (next) {
     }
 });
 
-module.exports = mongoose.model("Campground", campgroundSchema);
+var Campground = mongoose.model("Campground", campgroundSchema);
 
-async function generateUniqueSlug(id, campgroundName, slug) {
+module.exports = Campground;
+
+//module.exports = mongoose.model("Campground", campgroundSchema);
+
+async function generateUniqueSlug(id, campgroundName) {
     try {
         // generate the initial slug
-        if (!slug) {
-			eval(require('locus'));
-            slug = slugify(campgroundName);
-        }
-		eval(require('locus'));
+        slug = slugify(campgroundName);
         // check if a campground with the slug already exists
         var campground = await Campground.findOne({slug: slug});
-		eval(require('locus'));
         // check if a campground was found or if the found campground is the current campground
         if (!campground || campground._id.equals(id)) {
-			eval(require('locus'));
             return slug;
         }
-		eval(require('locus'));
         // if not unique, generate a new slug
-        var newSlug = slugify(campgroundName);
+        //var newSlug = slugify(campgroundName);
         // check again by calling the function recursively
-		eval(require('locus'));
-        return await generateUniqueSlug(id, campgroundName, newSlug);
+        return await generateUniqueSlug(id, campgroundName);
     } catch (err) {
-		eval(require('locus'));
         throw new Error(err);
     }
 }
